@@ -4,23 +4,18 @@ import movieBanner from '../../images/movie-banner.png';
 import movieApi from '../../common/apis/movieApi';
 import { APIKey } from '../../common/apis/movieApiKey';
 import { useDispatch } from 'react-redux';
-import { addMovies } from '../../features/movies/movieSlice';
+import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSlice';
+import './home.styles.scss';
 
 const Home = () => {
-    const movieText = 'Ironman';
+   
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchMovies = async () =>{
-            const response = await movieApi.get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
-            .catch((err) => {
-                console.log("Error: ", err)
-            });
-            console.log("Response from Api: ", response);
-            dispatch(addMovies(response.data));
-        }
-        fetchMovies();
-    }, []);
+        dispatch(fetchAsyncMovies());
+        dispatch(fetchAsyncShows());
+            
+    }, [dispatch]);
 
 
     return(

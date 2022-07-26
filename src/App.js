@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Home from './components/home/home.component';
 import MovieDetail from './components/movie-details/movie-details.component';
-import PageNotFound from './components/page-not-found/page-not-found.component';
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 
@@ -16,7 +15,6 @@ function App() {
       <Routes>
         <Route path='/' exact element={ <Home /> } />
         <Route path='/movie/:imdbID' element={ <MovieDetail /> } />
-        <Route element={<PageNotFound />} /> 
       </Routes>
       </div>
       <Footer /> 
