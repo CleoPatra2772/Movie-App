@@ -10,10 +10,12 @@ import './home.styles.scss';
 const Home = () => {
    
     const dispatch = useDispatch();
+    const movieText = 'Lord';
+    const showText = 'Friends';
 
     useEffect(() => {
-        dispatch(fetchAsyncMovies());
-        dispatch(fetchAsyncShows());
+        dispatch(fetchAsyncMovies(movieText));
+        dispatch(fetchAsyncShows(showText));
             
     }, [dispatch]);
 
